@@ -22,7 +22,6 @@ namespace Jelado_proj
             masodperc = int.Parse(adatok[2]);
             x = int.Parse(adatok[3]);
             y = int.Parse(adatok[4]);
-
         }
     }
 
