@@ -14,6 +14,13 @@ namespace Jelado_proj
         public int x { private set; get; }
         public int y { private set; get; }
 
+        public string Coordinates
+        {
+            get {
+                return $"x={x} y={y}";
+            }
+        }
+
         public Jelado(string adatsor)
         {
             string[] adatok = adatsor.Split(' ');

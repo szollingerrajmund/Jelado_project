@@ -18,6 +18,21 @@ namespace Jelado_proj
             {
                 jeladok.Add(new Jelado(sor));
             }
+
+            MasodikFeladat();
+        }
+
+        static void MasodikFeladat()
+        {
+            Console.WriteLine("2. feladat:");
+            Console.Write("Adja meg a jel sorszámát! ");
+            int inputIndex = int.Parse(Console.ReadLine());
+            Console.WriteLine(GetSignalByIndex(inputIndex).Coordinates);
+        }
+
+        static Jelado GetSignalByIndex(int index)
+        {
+            return jeladok[index - 1];
         }
     }
 }
