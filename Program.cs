@@ -21,6 +21,9 @@ namespace Jelado_proj
                 }
 
                 MasodikFeladat();
+                NegyedikFeladat();
+                Console.ReadKey();
+
             }
 
 
@@ -45,11 +48,15 @@ namespace Jelado_proj
 
             static void NegyedikFeladat()
             {
-                int elteltmp = GetSignalByIndex(0).idő[0];
-                Console.WriteLine(elteltmp);
+                int elteltmp = eltelt(jeladok[0].idő, jeladok[jeladok.Count-1].idő);
+                int óra = elteltmp / 3600;
+                int perc = (elteltmp / 60) % 60;
+                int másodperc = elteltmp % 60;
+                
 
                 Console.WriteLine("4. feladat");
-                Console.WriteLine($"Időtartam:");
+                Console.WriteLine($"Időtartam: {óra}:{perc}:{másodperc}");
+                
             }
 
             static Jelado GetSignalByIndex(int index)
@@ -57,5 +64,5 @@ namespace Jelado_proj
                 return jeladok[index - 1];
             }
         }
-
+    
 }
