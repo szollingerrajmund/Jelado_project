@@ -21,7 +21,13 @@ namespace Jelado_proj
             }
         }
 
-
+        public int[] idő
+        {
+            get
+            {
+                return new int[] {ora, perc, masodperc};
+            }
+        }
         public Jelado(string adatsor)
         {
             string[] adatok = adatsor.Split(' ');
