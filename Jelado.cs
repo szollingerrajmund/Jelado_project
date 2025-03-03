@@ -21,6 +21,7 @@ namespace Jelado_proj
             }
         }
 
+
         public Jelado(string adatsor)
         {
             string[] adatok = adatsor.Split(' ');
