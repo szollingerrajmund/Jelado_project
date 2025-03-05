@@ -4,19 +4,19 @@ Az állatok mozgását ma már rutinszerűen figyelik a rájuk rögzített jelad
 
 Az itt használt jeladó úgy működik, hogy helyének x és y koordinátáját továbbítja. Jelet küld, ha a legutolsó küldés óta bármely koordináta változása elérte a 10 egységet. Ha nem történt ekkora elmozdulás, 5 perc elteltével akkor is mindenképpen jelenti helyét. A vevőegység egy fájlban rögzíti a jel érkezési idejét és a pozíciót. Előfordulhat, hogy a vétel meghiúsul, ezért lehetnek egymást követő adatsorok, amelyek között 5 percnél több idő telik el, vagy a koordináták változása 10 egységnél nagyobb.
 
-Rendelkezésére áll a *jel.txt* nevű adatfájl, amely egy napról tartalmaz adatokat időrendben. Soraiban öt egész szám található, egymástól egy-egy szóközzel elválasztva. Az első három szám a jeladás időpontját (óra, perc, másodperc) adja meg, a negyedik szám az x, az ötödik az y koordináta. A sorok száma legfeljebb 1000, a koordináták -10 000 és 10 000 közötti értékek lehetnek.
+Rendelkezésére áll a _jel.json_ nevű adatfájl, amely egy napról tartalmaz adatokat időrendben. Soraiban öt egész szám található, egymástól egy-egy szóközzel elválasztva. Az első három szám a jeladás időpontját (óra, perc, másodperc) adja meg, a negyedik szám az x, az ötödik az y koordináta. A sorok száma legfeljebb 1000, a koordináták -10 000 és 10 000 közötti értékek lehetnek.
 
-Például:
-&nbsp;&nbsp;&nbsp;&nbsp;...
-&nbsp;&nbsp;&nbsp;&nbsp;3 21 19 126 639
-&nbsp;&nbsp;&nbsp;&nbsp;3 26 19 131 641
-&nbsp;&nbsp;&nbsp;&nbsp;3 27 55 124 651
-&nbsp;&nbsp;&nbsp;&nbsp;3 31 50 134 649
-&nbsp;&nbsp;&nbsp;&nbsp;...
-&nbsp;&nbsp;&nbsp;&nbsp;4 19 11 126 42
-&nbsp;&nbsp;&nbsp;&nbsp;4 29 11 128 36
-&nbsp;&nbsp;&nbsp;&nbsp;4 32 21 130 7
-&nbsp;&nbsp;&nbsp;&nbsp;...
+Például:<br>
+...<br>
+3 21 19 126 639<br>
+3 26 19 131 641<br>
+3 27 55 124 651<br>
+3 31 50 134 64<br>
+...<br>
+4 19 11 126 42<br>
+4 29 11 128 36<br>
+4 32 21 130 7<br>
+...
 
 A példa első csoportjában a második sor megmutatja, hogy a jeladó 5 egységnyit mozdult x, 2 egységnyit pedig y irányban 5 perc alatt. A harmadik bejegyzés azért született, mert y irányban 10 egységnyit mozdult el a jeladó, a negyedik bejegyzés pedig egy x irányú 10 egységnyi elmozdulást jelez.
 
@@ -26,7 +26,7 @@ Készítsen programot, amely az állomány adatait felhasználva az alábbi kér
 
 A képernyőre írást igénylő részfeladatok esetén – a mintához tartalmában hasonlóan – írja ki a képernyőre a feladat sorszámát (például: 5. feladat), és utaljon a kiírt tartalomra is! Ha a felhasználótól kér be adatot, jelenítse meg, hogy milyen értéket vár! Mindkét esetben az ékezetmentes kiírás is elfogadott.
 
-1. Olvassa be a _jel.txt_ állomány tartalmát, tárolja el a rögzített jelek adatait, és azok
+1. Olvassa be a _jel.json_ állomány tartalmát, tárolja el a rögzített jelek adatait, és azok
     felhasználásával oldja meg a következő feladatokat!
 
 2. Kérje be a felhasználótól egy jel sorszámát (a sorszámozás 1-től indul), és írja a képernyőre
@@ -51,7 +51,7 @@ A képernyőre írást igénylő részfeladatok esetén – a mintához tartalm�
     tizedespont kiírása is elfogadott. Az i-edik és az i+1-edik pontok távolságát a
     √((x~i~ - x ~(i+1)~)^2^ + (y~i~ - y ~(i+1)~)^2^)
 
-7. Írja a _kimaradt.txt_ fájlba a kimaradt észlelésekkel kapcsolatos adatokat! A kimeneti
+7. Írja a _kimaradt.json_ fájlba a kimaradt észlelésekkel kapcsolatos adatokat! A kimeneti
     fájlban azok a bemeneti állományban rögzített vételi időpontok jelenjenek meg, amelyek
     előtt közvetlenül egy vagy több észlelés kimaradt! Az időpont mellett – a mintának
     megfelelően – jelenjen meg, hogy legalább hány jel maradt ki, és az is, hogy miből
@@ -60,8 +60,9 @@ A képernyőre írást igénylő részfeladatok esetén – a mintához tartalm�
     jelkimaradásra következtetünk, akkor bármelyiket kiírhatja.
 
 Példa a szöveges kimenetek kialakításához:
+
 2. feladat
-Adja meg a jel sorszámát! 3
+Adja meg a jel sorszámát! 3<br>
 x=126 y=636
 
 4. feladat
@@ -73,9 +74,9 @@ Bal alsó: 4 639, jobb felső: 147 727
 6. feladat
 Elmozdulás: 2007.677 egység
 
-Minta a _kimaradt.txt_ fájl tartalmára
-&nbsp;&nbsp;&nbsp;&nbsp;4 25 33 időeltérés 1
-&nbsp;&nbsp;&nbsp;&nbsp;4 55 33 koordináta-eltérés 1
-&nbsp;&nbsp;&nbsp;&nbsp;5 5 33 időeltérés 1
-&nbsp;&nbsp;&nbsp;&nbsp;6 22 42 időeltérés 2
-&nbsp;&nbsp;&nbsp;&nbsp;6 32 42 koordináta-eltérés 2
+Minta a _kimaradt.json_ fájl tartalmára<br>
+4 25 33 időeltérés 1<br>
+4 55 33 koordináta-eltérés 1<br>
+5 5 33 időeltérés 1<br>
+6 22 42 időeltérés 2<br>
+6 32 42 koordináta-eltérés 2<br>
