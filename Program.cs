@@ -23,8 +23,9 @@ namespace Jelado_proj
             MasodikFeladat();
             NegyedikFeladat();
             OtodikFeladat();
-            Console.ReadKey();
+            HatodikFeladat();
 
+            Console.ReadKey();
         }
 
 
@@ -67,9 +68,25 @@ namespace Jelado_proj
             Console.WriteLine($"Bal alsó: {koordinatak[0]} {koordinatak[1]}, jobb felső: {koordinatak[2]} {koordinatak[3]}");
         }
 
+        static void HatodikFeladat()
+        {
+            Console.WriteLine("6. feladat");
+            Console.WriteLine($"Elmozdulás: {TotalDistanceTraveled():f3} egység");
+        }
+
         static Jelado GetSignalByIndex(int index)
         {
             return jeladok[index - 1];
+        }
+
+        static double TotalDistanceTraveled()
+        {
+            double distance = 0;
+            for (int i = 0; i < jeladok.Count - 1; i++)
+            {
+                distance += jeladok[i].DistanceTo(jeladok[i + 1]);
+            }
+            return distance;
         }
 
         static int[] Koordináták()
