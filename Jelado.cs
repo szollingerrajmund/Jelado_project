@@ -28,6 +28,12 @@ namespace Jelado_proj
                 return new int[] {ora, perc, masodperc};
             }
         }
+
+        public double DistanceTo(Jelado masikJelado)
+        {
+            return Math.Sqrt(Math.Pow(x - masikJelado.x, 2) + Math.Pow(y - masikJelado.y, 2));
+        }
+
         public Jelado(string adatsor)
         {
             string[] adatok = adatsor.Split(' ');
