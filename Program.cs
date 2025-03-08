@@ -28,6 +28,8 @@ namespace Jelado_proj
             Console.WriteLine("\n6. feladat");
             mo.HatodikFeladat();
 
+            mo.HetedikFeladat();
+
             Console.ReadKey();
         }
     }

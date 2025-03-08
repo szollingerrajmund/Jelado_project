@@ -61,6 +61,45 @@ namespace Jelado_proj
             Console.WriteLine($"Elmozdulás: {TotalDistanceTraveled():f3} egység");
         }
 
+        public void HetedikFeladat()
+        {
+            KimaradtEszlelesek();
+        }
+
+        public List<Elteres> KimaradtEszlelesek()
+        {
+            List<Elteres> kimaradasok = new List<Elteres>();
+
+            for (int i = 0; i < jeladok.Count - 2; i++)
+            {
+                int kimaradtJelekMennyisege = 0;
+                ElteresTipusa kimaradasTipusa = KimaradtJelTipusa(jeladok[i], jeladok[i + 1], out kimaradtJelekMennyisege);
+
+                if (kimaradasTipusa == ElteresTipusa.SEMMI) continue;
+
+                kimaradasok.Add(new Elteres(jeladok[i + 1], kimaradtJelekMennyisege, kimaradasTipusa));
+            }
+            return new List<Elteres>();
+        }
+
+        public ElteresTipusa KimaradtJelTipusa(Jelado elso, Jelado masodik, out int kimaradtJelekMennyisege)
+        {
+            kimaradtJelekMennyisege = 0;
+
+            int koordinataElteres = Math.Max((int)Math.Ceiling(Math.Abs(elso.x - masodik.x) / (double)10), (int)Math.Ceiling(Math.Abs(elso.y - masodik.y) / (double)10));
+            int idoElteres = (int)Math.Ceiling(eltelt(elso.idő, masodik.idő) / (double)(5 * 60));
+
+            if (idoElteres <= 1 && koordinataElteres <= 1) return ElteresTipusa.SEMMI;
+            else if (idoElteres > koordinataElteres)
+            {
+                kimaradtJelekMennyisege = idoElteres;
+                return ElteresTipusa.IDO;
+            }
+
+            kimaradtJelekMennyisege = koordinataElteres;
+            return ElteresTipusa.KOORDINATA;
+        }
+
         public Jelado GetSignalByIndex(int index)
         {
             return jeladok[index - 1];

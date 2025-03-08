@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elteres.cs" />
     <Compile Include="Jelado.cs" />
     <Compile Include="Megoldas.cs" />
     <Compile Include="Program.cs" />
