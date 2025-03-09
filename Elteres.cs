@@ -14,15 +14,19 @@ namespace Jelado_proj
 
     class Elteres
     {
-        public Jelado kovetkezoJel;
-        public int kimaradtJelekSzama;
-        public ElteresTipusa elteresTipusa;
+        public int óra;
+        public int perc;
+        public int másodperc;
+        public int kimaradtJelek;
+        public string kimaradasTipusa;
 
         public Elteres(Jelado kovetkezoJel, int kimaradtJelekSzama, ElteresTipusa elteresTipusa)
         {
-            this.kovetkezoJel = kovetkezoJel;
-            this.kimaradtJelekSzama = kimaradtJelekSzama;
-            this.elteresTipusa = elteresTipusa;
+            óra = kovetkezoJel.ora;
+            perc = kovetkezoJel.perc;
+            másodperc = kovetkezoJel.masodperc;
+            kimaradtJelek = kimaradtJelekSzama;
+            kimaradasTipusa = elteresTipusa == ElteresTipusa.IDO ? "időeltérés" : "koordináta-eltérés";
         }
     }
 }

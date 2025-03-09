@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using Newtonsoft.Json;
 
 namespace Jelado_proj
 {
@@ -63,7 +64,7 @@ namespace Jelado_proj
 
         public void HetedikFeladat()
         {
-            KimaradtEszlelesek();
+            KimaradasokIrasa("kimaradasok.json");
         }
 
         public List<Elteres> KimaradtEszlelesek()
@@ -79,7 +80,15 @@ namespace Jelado_proj
 
                 kimaradasok.Add(new Elteres(jeladok[i + 1], kimaradtJelekMennyisege, kimaradasTipusa));
             }
-            return new List<Elteres>();
+            return kimaradasok;
+        }
+
+        public void KimaradasokIrasa(string allomanyNeve)
+        {
+            List<Elteres> kimaradasok = KimaradtEszlelesek();
+
+            string json = JsonConvert.SerializeObject(kimaradasok);
+            File.WriteAllText(allomanyNeve, json);
         }
 
         public ElteresTipusa KimaradtJelTipusa(Jelado elso, Jelado masodik, out int kimaradtJelekMennyisege)

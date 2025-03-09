@@ -9,8 +9,6 @@ namespace Jelado_proj
 {
     internal class Program
     {
-
-
         static void Main(string[] args)
         {
             Megoldas mo = new Megoldas("jel.txt");
