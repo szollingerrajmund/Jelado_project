@@ -9,8 +9,6 @@ namespace Jelado_proj
 {
     internal class Program
     {
-
-
         static void Main(string[] args)
         {
             Megoldas mo = new Megoldas("jel.txt");
@@ -27,6 +25,8 @@ namespace Jelado_proj
 
             Console.WriteLine("\n6. feladat");
             mo.HatodikFeladat();
+
+            mo.HetedikFeladat();
 
             Console.ReadKey();
         }

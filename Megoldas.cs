@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using Newtonsoft.Json;
 
 namespace Jelado_proj
 {
@@ -59,6 +60,53 @@ namespace Jelado_proj
         public void HatodikFeladat()
         {
             Console.WriteLine($"Elmozdulás: {TotalDistanceTraveled():f3} egység");
+        }
+
+        public void HetedikFeladat()
+        {
+            KimaradasokIrasa("kimaradasok.json");
+        }
+
+        public List<Elteres> KimaradtEszlelesek()
+        {
+            List<Elteres> kimaradasok = new List<Elteres>();
+
+            for (int i = 0; i < jeladok.Count - 2; i++)
+            {
+                int kimaradtJelekMennyisege = 0;
+                ElteresTipusa kimaradasTipusa = KimaradtJelTipusa(jeladok[i], jeladok[i + 1], out kimaradtJelekMennyisege);
+
+                if (kimaradasTipusa == ElteresTipusa.SEMMI) continue;
+
+                kimaradasok.Add(new Elteres(jeladok[i + 1], kimaradtJelekMennyisege, kimaradasTipusa));
+            }
+            return kimaradasok;
+        }
+
+        public void KimaradasokIrasa(string allomanyNeve)
+        {
+            List<Elteres> kimaradasok = KimaradtEszlelesek();
+
+            string json = JsonConvert.SerializeObject(kimaradasok);
+            File.WriteAllText(allomanyNeve, json);
+        }
+
+        public ElteresTipusa KimaradtJelTipusa(Jelado elso, Jelado masodik, out int kimaradtJelekMennyisege)
+        {
+            kimaradtJelekMennyisege = 0;
+
+            int koordinataElteres = Math.Max((int)Math.Ceiling(Math.Abs(elso.x - masodik.x) / (double)10), (int)Math.Ceiling(Math.Abs(elso.y - masodik.y) / (double)10));
+            int idoElteres = (int)Math.Ceiling(eltelt(elso.idő, masodik.idő) / (double)(5 * 60));
+
+            if (idoElteres <= 1 && koordinataElteres <= 1) return ElteresTipusa.SEMMI;
+            else if (idoElteres > koordinataElteres)
+            {
+                kimaradtJelekMennyisege = idoElteres;
+                return ElteresTipusa.IDO;
+            }
+
+            kimaradtJelekMennyisege = koordinataElteres;
+            return ElteresTipusa.KOORDINATA;
         }
 
         public Jelado GetSignalByIndex(int index)
