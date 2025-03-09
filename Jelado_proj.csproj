@@ -79,12 +79,14 @@
   <ItemGroup>
     <Compile Include="Elteres.cs" />
     <Compile Include="Jelado.cs" />
+    <Compile Include="JsonParser.cs" />
     <Compile Include="Megoldas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="jel.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

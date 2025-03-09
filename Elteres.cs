@@ -18,7 +18,7 @@ namespace Jelado_proj
         public int perc;
         public int másodperc;
         public int kimaradtJelek;
-        public string kimaradasTipusa;
+        public string kimaradasOka;
 
         public Elteres(Jelado kovetkezoJel, int kimaradtJelekSzama, ElteresTipusa elteresTipusa)
         {
@@ -26,7 +26,7 @@ namespace Jelado_proj
             perc = kovetkezoJel.perc;
             másodperc = kovetkezoJel.masodperc;
             kimaradtJelek = kimaradtJelekSzama;
-            kimaradasTipusa = elteresTipusa == ElteresTipusa.IDO ? "időeltérés" : "koordináta-eltérés";
+            kimaradasOka = elteresTipusa == ElteresTipusa.IDO ? "időeltérés" : "koordináta-eltérés";
         }
     }
 }
