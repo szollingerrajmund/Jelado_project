@@ -8,25 +8,20 @@ namespace Jelado_proj
 {
     internal class Jelado
     {
-        public int ora { private set; get; }
-        public int perc {  private set; get; }
-        public int masodperc { private set; get; }
-        public int x { private set; get; }
-        public int y { private set; get; }
+        public int ora { set; get; }
+        public int perc { set; get; }
+        public int masodperc { set; get; }
+        public int x { set; get; }
+        public int y { set; get; }
 
-        public string Coordinates
+        public string GetCoordinates()
         {
-            get {
-                return $"x={x} y={y}";
-            }
+            return $"x={x} y={y}";
         }
 
-        public int[] idő
+        public int[] Idő()
         {
-            get
-            {
-                return new int[] {ora, perc, masodperc};
-            }
+            return new int[] { ora, perc, masodperc };
         }
 
         public double DistanceTo(Jelado masikJelado)
@@ -34,15 +29,7 @@ namespace Jelado_proj
             return Math.Sqrt(Math.Pow(x - masikJelado.x, 2) + Math.Pow(y - masikJelado.y, 2));
         }
 
-        public Jelado(string adatsor)
-        {
-            string[] adatok = adatsor.Split(' ');
-            ora = int.Parse(adatok[0]);
-            perc = int.Parse(adatok[1]);
-            masodperc = int.Parse(adatok[2]);
-            x = int.Parse(adatok[3]);
-            y = int.Parse(adatok[4]);
-        }
+        public Jelado() {}
     }
 
 }

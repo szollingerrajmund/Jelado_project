@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
-using Newtonsoft.Json;
 
 namespace Jelado_proj
 {
@@ -16,16 +15,14 @@ namespace Jelado_proj
         public List<Jelado> jeladok = new List<Jelado>();
         public Megoldas(string forrás)
         {
-            foreach (string sor in File.ReadAllLines(allomanyNev))
-            {
-                jeladok.Add(new Jelado(sor));
-            }
+            jeladok = JsonParser.Read<Jelado>(forrás);
         }
+
         public void MasodikFeladat()
         {
 
             int inputIndex = int.Parse(Console.ReadLine());
-            Console.WriteLine(GetSignalByIndex(inputIndex).Coordinates);
+            Console.WriteLine(GetSignalByIndex(inputIndex).GetCoordinates());
         }
 
 
@@ -41,7 +38,7 @@ namespace Jelado_proj
 
         public void NegyedikFeladat()
         {
-            int elteltmp = eltelt(jeladok[0].idő, jeladok[jeladok.Count - 1].idő);
+            int elteltmp = eltelt(jeladok[0].Idő(), jeladok[jeladok.Count - 1].Idő());
             int óra = elteltmp / 3600;
             int perc = (elteltmp / 60) % 60;
             int másodperc = elteltmp % 60;
@@ -86,9 +83,7 @@ namespace Jelado_proj
         public void KimaradasokIrasa(string allomanyNeve)
         {
             List<Elteres> kimaradasok = KimaradtEszlelesek();
-
-            string json = JsonConvert.SerializeObject(kimaradasok);
-            File.WriteAllText(allomanyNeve, json);
+            JsonParser.Write(allomanyNeve, kimaradasok);
         }
 
         public ElteresTipusa KimaradtJelTipusa(Jelado elso, Jelado masodik, out int kimaradtJelekMennyisege)
@@ -96,7 +91,7 @@ namespace Jelado_proj
             kimaradtJelekMennyisege = 0;
 
             int koordinataElteres = Math.Max((int)Math.Ceiling(Math.Abs(elso.x - masodik.x) / (double)10), (int)Math.Ceiling(Math.Abs(elso.y - masodik.y) / (double)10));
-            int idoElteres = (int)Math.Ceiling(eltelt(elso.idő, masodik.idő) / (double)(5 * 60));
+            int idoElteres = (int)Math.Ceiling(eltelt(elso.Idő(), masodik.Idő()) / (double)(5 * 60));
 
             if (idoElteres <= 1 && koordinataElteres <= 1) return ElteresTipusa.SEMMI;
             else if (idoElteres > koordinataElteres)
