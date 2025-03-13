@@ -7,7 +7,7 @@ Az itt használt jeladó úgy működik, hogy helyének x és y koordinátáját
 Rendelkezésére áll a _jel.json_ nevű adatfájl, amely egy napról tartalmaz adatokat időrendben. Soraiban öt adat található, melyeknek típusa szám. Az első három szám a jeladás időpontját (óra, perc, másodperc) adja meg, a negyedik szám az x, az ötödik az y koordináta. A sorok száma legfeljebb 1000, a koordináták -10 000 és 10 000 közötti értékek lehetnek.
 
 ```
-Például:<br>
+Például:
 {
         "ora": 3,
         "perc": 21,
@@ -36,7 +36,7 @@ Például:<br>
         "x": 134,
         "y": 649
     },
-...<br>
+...
 {
         "ora": 4,
         "perc": 30,
@@ -104,8 +104,9 @@ A képernyőre írást igénylő részfeladatok esetén – a mintához tartalm�
 
 Példa a szöveges kimenetek kialakításához:
 
+```
 2. feladat
-Adja meg a jel sorszámát! 3<br>
+Adja meg a jel sorszámát! 3
 x=126 y=636
 
 4. feladat
@@ -116,10 +117,38 @@ Bal alsó: 4 639, jobb felső: 147 727
 
 6. feladat
 Elmozdulás: 2007.677 egység
+```
 
-Minta a _kimaradt.json_ fájl tartalmára<br>
-4 25 33 időeltérés 1<br>
-4 55 33 koordináta-eltérés 1<br>
-5 5 33 időeltérés 1<br>
-6 22 42 időeltérés 2<br>
-6 32 42 koordináta-eltérés 2<br>
+Minta a _kimaradt.json_ fájl tartalmára
+```
+    {
+        "ora": 4,
+        "perc": 25,
+        "masodperc": 33,
+        időeltérés 1
+    },
+    {
+        "ora": 4,
+        "perc": 55,
+        "masodperc": 33,
+        koordináta-eltérés 1
+    },
+    {
+        "ora": 5,
+        "perc": 5,
+        "masodperc": 33,
+        időeltérés 1
+    },
+    {
+        "ora": 6,
+        "perc": 22,
+        "masodperc": 42,
+        időeltérés 2
+    },
+    {
+        "ora": 6,
+        "perc": 32,
+        "masodperc": 42,
+        koordináta-eltérés 2
+    },
+```
