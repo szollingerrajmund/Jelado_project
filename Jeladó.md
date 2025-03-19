@@ -119,36 +119,35 @@ Bal alsó: 4 639, jobb felső: 147 727
 Elmozdulás: 2007.677 egység
 ```
 
-Minta a _kimaradt.json_ fájl tartalmára
-```
+Minta a _kimaradasok.json_ fájl tartalmára
+    ```
     {
-        "ora": 4,
-        "perc": 25,
-        "masodperc": 33,
-        időeltérés 1
+      "óra": 4,
+      "perc": 55,
+      "másodperc": 33,
+      "kimaradtJelek": 2,
+      "kimaradasOka": "koordináta-eltérés"
     },
     {
-        "ora": 4,
-        "perc": 55,
-        "masodperc": 33,
-        koordináta-eltérés 1
+      "óra": 5,
+      "perc": 5,
+      "másodperc": 33,
+      "kimaradtJelek": 2,
+      "kimaradasOka": "időeltérés"
     },
     {
-        "ora": 5,
-        "perc": 5,
-        "masodperc": 33,
-        időeltérés 1
+      "óra": 6,
+      "perc": 22,
+      "másodperc": 42,
+      "kimaradtJelek": 3,
+      "kimaradasOka": "időeltérés"
     },
     {
-        "ora": 6,
-        "perc": 22,
-        "masodperc": 42,
-        időeltérés 2
+      "óra": 6,
+      "perc": 32,
+      "másodperc": 42,
+      "kimaradtJelek": 3,
+      "kimaradasOka": "koordináta-eltérés"
     },
-    {
-        "ora": 6,
-        "perc": 32,
-        "masodperc": 42,
-        koordináta-eltérés 2
-    },
+
 ```
