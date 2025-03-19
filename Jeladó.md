@@ -119,7 +119,7 @@ Bal alsó: 4 639, jobb felső: 147 727
 Elmozdulás: 2007.677 egység
 ```
 
-Minta a _kimaradt.json_ fájl tartalmára
+Minta a _kimaradasok.json_ fájl tartalmára
     ```
     {
       "óra": 4,
