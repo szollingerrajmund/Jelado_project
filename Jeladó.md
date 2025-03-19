@@ -4,19 +4,62 @@ Az állatok mozgását ma már rutinszerűen figyelik a rájuk rögzített jelad
 
 Az itt használt jeladó úgy működik, hogy helyének x és y koordinátáját továbbítja. Jelet küld, ha a legutolsó küldés óta bármely koordináta változása elérte a 10 egységet. Ha nem történt ekkora elmozdulás, 5 perc elteltével akkor is mindenképpen jelenti helyét. A vevőegység egy fájlban rögzíti a jel érkezési idejét és a pozíciót. Előfordulhat, hogy a vétel meghiúsul, ezért lehetnek egymást követő adatsorok, amelyek között 5 percnél több idő telik el, vagy a koordináták változása 10 egységnél nagyobb.
 
-Rendelkezésére áll a _jel.json_ nevű adatfájl, amely egy napról tartalmaz adatokat időrendben. Soraiban öt egész szám található, egymástól egy-egy szóközzel elválasztva. Az első három szám a jeladás időpontját (óra, perc, másodperc) adja meg, a negyedik szám az x, az ötödik az y koordináta. A sorok száma legfeljebb 1000, a koordináták -10 000 és 10 000 közötti értékek lehetnek.
+Rendelkezésére áll a _jel.json_ nevű adatfájl, amely egy napról tartalmaz adatokat időrendben. Soraiban öt adat található, melyeknek típusa szám. Az első három szám a jeladás időpontját (óra, perc, másodperc) adja meg, a negyedik szám az x, az ötödik az y koordináta. A sorok száma legfeljebb 1000, a koordináták -10 000 és 10 000 közötti értékek lehetnek.
 
-Például:<br>
-...<br>
-3 21 19 126 639<br>
-3 26 19 131 641<br>
-3 27 55 124 651<br>
-3 31 50 134 64<br>
-...<br>
-4 19 11 126 42<br>
-4 29 11 128 36<br>
-4 32 21 130 7<br>
+```
+Például:
+{
+        "ora": 3,
+        "perc": 21,
+        "masodperc": 19,
+        "x": 126,
+        "y": 639
+    },
+    {
+        "ora": 3,
+        "perc": 26,
+        "masodperc": 19,
+        "x": 131,
+        "y": 641
+    },
+    {
+        "ora": 3,
+        "perc": 27,
+        "masodperc": 55,
+        "x": 124,
+        "y": 651
+    },
+    {
+        "ora": 3,
+        "perc": 31,
+        "masodperc": 50,
+        "x": 134,
+        "y": 649
+    },
 ...
+{
+        "ora": 4,
+        "perc": 30,
+        "masodperc": 33,
+        "x": 83,
+        "y": 680
+    },
+    {
+        "ora": 4,
+        "perc": 35,
+        "masodperc": 33,
+        "x": 80,
+        "y": 677
+    },
+    {
+        "ora": 4,
+        "perc": 40,
+        "masodperc": 33,
+        "x": 88,
+        "y": 686
+    },
+...
+```
 
 A példa első csoportjában a második sor megmutatja, hogy a jeladó 5 egységnyit mozdult x, 2 egységnyit pedig y irányban 5 perc alatt. A harmadik bejegyzés azért született, mert y irányban 10 egységnyit mozdult el a jeladó, a negyedik bejegyzés pedig egy x irányú 10 egységnyi elmozdulást jelez.
 
@@ -61,8 +104,9 @@ A képernyőre írást igénylő részfeladatok esetén – a mintához tartalm�
 
 Példa a szöveges kimenetek kialakításához:
 
+```
 2. feladat
-Adja meg a jel sorszámát! 3<br>
+Adja meg a jel sorszámát! 3
 x=126 y=636
 
 4. feladat
@@ -73,10 +117,38 @@ Bal alsó: 4 639, jobb felső: 147 727
 
 6. feladat
 Elmozdulás: 2007.677 egység
+```
 
-Minta a _kimaradt.json_ fájl tartalmára<br>
-4 25 33 időeltérés 1<br>
-4 55 33 koordináta-eltérés 1<br>
-5 5 33 időeltérés 1<br>
-6 22 42 időeltérés 2<br>
-6 32 42 koordináta-eltérés 2<br>
+Minta a _kimaradt.json_ fájl tartalmára
+```
+    {
+        "ora": 4,
+        "perc": 25,
+        "masodperc": 33,
+        időeltérés 1
+    },
+    {
+        "ora": 4,
+        "perc": 55,
+        "masodperc": 33,
+        koordináta-eltérés 1
+    },
+    {
+        "ora": 5,
+        "perc": 5,
+        "masodperc": 33,
+        időeltérés 1
+    },
+    {
+        "ora": 6,
+        "perc": 22,
+        "masodperc": 42,
+        időeltérés 2
+    },
+    {
+        "ora": 6,
+        "perc": 32,
+        "masodperc": 42,
+        koordináta-eltérés 2
+    },
+```
